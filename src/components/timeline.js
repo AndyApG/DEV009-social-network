@@ -73,7 +73,7 @@ function timeline() {
     const postValue = inputNewPost.value;
     const newPostDiv = document.createElement('div');
     newPostDiv.innerText = postValue;
-    main.append(newPostDiv);
+    main.prepend(newPostDiv);
     inputNewPost.value = '';
     saveNewPost(postValue, user.uid);
   });
