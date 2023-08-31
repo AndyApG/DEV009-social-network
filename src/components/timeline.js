@@ -1,7 +1,9 @@
-import { readDataWithIdUser, saveNewPost, readCollectionData } from '../lib/credentials.js';
+import {
+  readDataWithIdUser, saveNewPost, readCollectionData, deletePostWhitId, updatePost,
+} from '../lib/credentials.js';
 import { auth, signOut } from '../lib/initializerFirebase.js';
 
-function timeline() {
+function timeline(navigateTo) {
   const user = auth.currentUser;
 
   const section = document.createElement('section');
@@ -10,15 +12,20 @@ function timeline() {
   const header = document.createElement('header');
   header.classList.add('header');
 
-  const title = document.createElement('h2');
-  title.textContent = 'Guide Ma+Pa';
-  title.classList.add('titletimeline');
+  const imagenGuideMaPA = document.createElement('img');
+  imagenGuideMaPA.classList.add('imagenGuideMaPa');
+  imagenGuideMaPA.src = './images/logoWords.png';
 
   const sidebar = document.createElement('sidebar');
   sidebar.classList.add('sidebar');
 
   const main = document.createElement('main');
   main.classList.add('main');
+
+  const porfileImage = document.createElement('img');
+  porfileImage.src = './images/svg/user-solid.svg';
+  porfileImage.alt = 'imagen de perfil';
+  porfileImage.classList.add('porfileImage');
 
   const welcomeText = document.createElement('p');
   if (user) {
@@ -32,25 +39,62 @@ function timeline() {
 
   const sectionPost = document.createElement('section');
   sectionPost.classList.add('sectionPost');
+
+  function createModal(textPost, idPost) {
+    const modal = document.createElement('dialog');
+    modal.classList.add('updatePostModal');
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modalContent');
+    const titulo = document.createElement('h2');
+    titulo.classList.add('titleModal');
+    titulo.innerHTML = 'Modifica tu publicación';
+    const modalText = document.createElement('textarea');
+    modalText.value = textPost;
+    const buttonSavePost = document.createElement('button');
+    buttonSavePost.className = 'buttonUpdate';
+    buttonSavePost.innerText = 'guardar cambios';
+    buttonSavePost.addEventListener('click', () => {
+      if (modalText.value) {
+        updatePost('posts', idPost, modalText.value).then(() => {
+          modal.close();
+          navigateTo('/timeline');
+        });
+      } else {
+        alert('escribe una publicación');
+      }
+    });
+    const buttonCancelPost = document.createElement('button');
+    buttonCancelPost.className = 'buttonCancelPost';
+    buttonCancelPost.innerText = 'cancelar';
+    buttonCancelPost.addEventListener('click', () => {
+      console.log('se cancelo la publicacion');
+      modal.close();
+    });
+    modalContent.append(titulo, modalText, buttonSavePost, buttonCancelPost);
+    modal.appendChild(modalContent);
+    sectionPost.appendChild(modal);
+    modal.showModal();
+  }
   if (user) {
-    readCollectionData('posts'/* , 'idUser', '==', user.uid */).then((result) => {
-      result.forEach((doc) => {
+    readCollectionData('posts'/* , 'idUser', '==', user.uid */).then((collection) => {
+      collection.forEach((elementCollection) => {
         const postDiv = document.createElement('div');
         postDiv.classList.add('post');
         const porfileImg = document.createElement('img');
+        porfileImg.src = './images/svg/user-solid.svg';
         porfileImg.alt = 'imagen de perfil';
         porfileImg.classList.add('postImgPorfile');
         const userName = document.createElement('p');
         userName.classList.add('postUserName');
         const textPost = document.createElement('p');
         textPost.classList.add('postText');
-        const userId = doc.data().idUser;/*
+        const userId = elementCollection.data().idUser;/*
         readDataWithIdUser('posts', doc.id).then((data) => {
           textPost.textContent = `${data.post}`;
           userName.textContent = 'userName';
         }); */
         readDataWithIdUser('users', userId).then((userData) => {
-          textPost.textContent = `${doc.data().post}`;
+          textPost.textContent = `${elementCollection.data().post}`;
           userName.textContent = userData.username;
           if (userId === user.uid) {
             // Boton Editar
@@ -59,7 +103,7 @@ function timeline() {
             buttonEdit.classList.add('buttonEdit');
             postDiv.append(buttonEdit);
             buttonEdit.addEventListener('click', () => {
-              alert('Editar');
+              createModal(elementCollection.data().post, elementCollection.id);
             });
             // Boton Eliminar
             const buttonDelete = document.createElement('img');
@@ -67,7 +111,25 @@ function timeline() {
             buttonDelete.classList.add('buttonDelete');
             postDiv.append(buttonDelete);
             buttonDelete.addEventListener('click', () => {
-              alert('eliminar');
+              const modalDelete = document.createElement('dialog');
+              modalDelete.classList.add('modalDelete');
+              const buttonDeletePost = document.createElement('button');
+              buttonDeletePost.classList.add('buttonModalDelete');
+              buttonDeletePost.innerText = 'Borrar publicación';
+              buttonDeletePost.addEventListener('click', () => {
+                deletePostWhitId('posts', elementCollection.id);
+                postDiv.parentElement.removeChild(postDiv);
+                modalDelete.close();
+              });
+              const buttonCancelDelete = document.createElement('button');
+              buttonCancelDelete.classList.add('buttonModalDelete');
+              buttonCancelDelete.innerText = 'cancelar';
+              buttonCancelDelete.addEventListener('click', () => {
+                modalDelete.close();
+              });
+              modalDelete.append(buttonDeletePost, buttonCancelDelete);
+              sectionPost.append(modalDelete);
+              modalDelete.showModal();
             });
           }
         });
@@ -81,6 +143,7 @@ function timeline() {
   footer.classList.add('footer');
 
   const inputNewPost = document.createElement('input');
+  inputNewPost.maxLength = 300;
   inputNewPost.classList.add('inputNewPost');
   const placeHolderInput = 'Que estas pensando...';
   inputNewPost.placeholder = placeHolderInput;
@@ -89,28 +152,26 @@ function timeline() {
   buttonCreatePost.textContent = 'publicar';
   buttonCreatePost.classList.add('buttonCreatePost');
   buttonCreatePost.addEventListener('click', () => {
-    // navigateTo('/newPost');
     const postValue = inputNewPost.value;
-    const newPostDiv = document.createElement('div');
-    newPostDiv.innerText = postValue;
-    sectionPost.prepend(newPostDiv);
-    inputNewPost.value = '';
-    saveNewPost(postValue, user.uid);
+    if (postValue) {
+      inputNewPost.value = '';
+      saveNewPost(postValue, user.uid);
+      navigateTo('/timeline');
+    } else {
+      alert('escribe una publicación');
+    }
   });
-
   const buttonLogOut = document.createElement('img');
   buttonLogOut.src = '../images/svg/logout.svg';
   buttonLogOut.classList.add('buttonLogOut');
   buttonLogOut.addEventListener('click', () => {
     signOut(auth).then(() => {
       localStorage.clear();
-    }).catch((error) => {
-      // An error happened.
     });
   });
   sidebar.append(buttonLogOut);
-  header.append(title, sidebar);
-  sectionInput.append(welcomeText, inputNewPost, buttonCreatePost);
+  header.append(imagenGuideMaPA, sidebar);
+  sectionInput.append(porfileImage, welcomeText, inputNewPost, buttonCreatePost);
   main.append(sectionInput, sectionPost);
   section.append(header, main, footer);
 
