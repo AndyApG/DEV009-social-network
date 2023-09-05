@@ -134,8 +134,61 @@ Con estas historias de usuario definiremos lo que el usuario desea de nuestro pr
 
 ### Historia de usuario 3
 
+**YO** como usaria, **DESEO** ver el contenido que me interesa publicado en el feed de la plataforma **PARA** nutrirme de nuevos conocimientos respecto a maternidad.
+
+**Criterio de Aceptación:**
+
+- [x] Verificar si el usuario está logueado antes de mostrar contenido
+- [x] Mensaje de Bienvenida 
+- [x] Ver contenido en el muro 
+- [x] Diseño organizado y fácil de leer, donde cada publicación debe incluir el nombre del autor, y  el contenido compartido.
+
+**Definición de terminado**
+- [x] En el header se muestra el logotipo de la aplicacion y el boton para cerrar sesion.
+- [x] El boton de cerrar sesion te redirige al la pagina de inicio de la aplicacion.
+- [x] Se muestra un saludo y el nombre del usuario logueado.
+- [x] Hay un intup para escribir el mensaje y un boton para publicar.
+- [x] Las publicaciones se muestran de forma clara.
+- [x] la estructura de la vista está hecha dinamicamente con css grid.
+
+
+
 ### Historia de usuario 4
+
+**YO** como mapadre **DESEO** poder publicar y editar el contenido que comparto sobre mis experiencias, consejos y recursos desmitificando las expectativas de la maternidad, **PARA** que otros mapadres puedan expresar (desahogarse) sus miedos y culpas o  angustias.
+
+**Criterios de Aceptación**
+
+- [x] Hay una opción para editar mi publicación después de haberla creado.
+- [x] Se debe abrir un editor de texto o un formulario donde pueda modificar mi publicación.
+- [x] Al modificar la publicación no debe permitir guardarla si no contiene texto.
+- [x] Al modificar la publicación debe tener la opcion de cancelar o guardar cambios.
+- [x]  Debe existir una caja de texto y un botón claramente visible que me permita acceder a la función de "Publicar"
+- [x] Solo puedo publicar comentarios con información, nunca mensajes vacíos.
+
+**Definición de terminado**
+- [x] El nombre del usuario aparece en cada nueva publicacion.
+- [x] Las publicaciones contienen máximo 300 caracteres.
+- [x] Los botones de editar y eliminar solo aparecen en publicaciones del usuario logueado, no puede modificar publicaciones de otros usuarios.
+- [x] El mensaje a editar se muestra en una ventana modal
+- [x] En la modal aparecen dos botones para aceptar y guardar cambios.
+- [x] Al dar click en el boton de aceptar, la modificación de la publicación se muestra en el muro.
+
+
 ### Historia de usuario 5
+
+**YO** como mapadre **DESEO** tener la opción de eliminar publicaciones específicas de mi feed  **PARA** que pueda mantener mi experiencia personalizada y enfocada en el contenido que es relevante para mí.
+
+**Criterios de Aceptación:**
+- [x]  Debe existir un botón o icono claramente visible en cada publicación de mi feed que indique la opción para "Eliminar".
+- [x] Al hacer clic en el botón de "Eliminar" en una publicación, debo recibir una confirmación para asegurarme de que realmente deseo eliminar esa publicación.
+- [x]  Una vez que haya confirmado mi decisión de eliminar la publicación, esta debe desaparecer inmediatamente de mi feed.
+
+**Definición de terminado**
+
+- [x] El boton de eliminar solo aparecen en publicaciones del usuario logueado, no se puede eliminar publicaciones de otros usuarios.
+- [x] El mensaje confirmar la eliminación de una publicación se muestra en una ventana modal
+- [x] En la modal aparecen dos botones para borrar publicacion y cancelar.
 
 ## Diseño de la Interfaz de Usuario
 
