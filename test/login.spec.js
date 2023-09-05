@@ -44,8 +44,15 @@ describe('login', () => {
     await expect(startSession('ejemp@correo.com', 'abc123.')).rejects.toThrow('error');
   });
   it('Correo Incorrecto', async () => {
-    inputEmail.value = 'ejemplo@correo.com';
+    inputEmail.value = 'zejemplo@correo.com';
     inputPassword.value = 'abc123.';
+    startSessionBtn.click();
+    console.log(await Promise.resolve());
+  });
+
+  it('contrasena Incorrecto', async () => {
+    inputEmail.value = 'ejemplo@correo.com';
+    inputPassword.value = ' ';
     startSessionBtn.click();
     console.log(await Promise.resolve());
   });
