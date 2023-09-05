@@ -5,7 +5,6 @@ import { auth, signOut } from '../lib/initializerFirebase.js';
 
 function timeline(navigateTo) {
   const user = auth.currentUser;
-
   const section = document.createElement('section');
   section.classList.add('timelineSection');
 
@@ -31,7 +30,7 @@ function timeline(navigateTo) {
   if (user) {
     welcomeText.classList.add('welcomeText');
     readDataWithIdUser('users', user.uid).then((data) => {
-      welcomeText.textContent = `¡Hola, ${data.username}!`;
+      welcomeText.textContent = `¡Hola, ${data.name}!`;
     });
   }
   const sectionInput = document.createElement('section');
