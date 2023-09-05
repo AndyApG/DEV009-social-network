@@ -2,6 +2,11 @@ import {
   readDataWithIdUser, saveNewPost, readCollectionData, deletePostWhitId, updatePost,
 } from '../lib/credentials.js';
 import { auth, signOut } from '../lib/initializerFirebase.js';
+import logoWords from '../images/logoWords.png';
+import profileImage from '../images/svg/user-solid.svg';
+import btnEdit from '../images/svg/pen-solid.svg';
+import btnDelete from '../images/svg/trash-solid.svg';
+import btnLogOut from '../images/svg/logout.svg';
 
 function timeline(navigateTo) {
   const user = auth.currentUser;
@@ -13,7 +18,7 @@ function timeline(navigateTo) {
 
   const imagenGuideMaPA = document.createElement('img');
   imagenGuideMaPA.classList.add('imagenGuideMaPa');
-  imagenGuideMaPA.src = './images/logoWords.png';
+  imagenGuideMaPA.src = logoWords;
 
   const sidebar = document.createElement('sidebar');
   sidebar.classList.add('sidebar');
@@ -22,7 +27,7 @@ function timeline(navigateTo) {
   main.classList.add('main');
 
   const porfileImage = document.createElement('img');
-  porfileImage.src = './images/svg/user-solid.svg';
+  porfileImage.src = profileImage;
   porfileImage.alt = 'imagen de perfil';
   porfileImage.classList.add('porfileImage');
 
@@ -80,7 +85,7 @@ function timeline(navigateTo) {
         const postDiv = document.createElement('div');
         postDiv.classList.add('post');
         const porfileImg = document.createElement('img');
-        porfileImg.src = './images/svg/user-solid.svg';
+        porfileImg.src = profileImage;
         porfileImg.alt = 'imagen de perfil';
         porfileImg.classList.add('postImgPorfile');
         const userName = document.createElement('p');
@@ -98,7 +103,7 @@ function timeline(navigateTo) {
           if (userId === user.uid) {
             // Boton Editar
             const buttonEdit = document.createElement('img');
-            buttonEdit.src = './images/svg/pen-solid.svg';
+            buttonEdit.src = btnEdit;
             buttonEdit.classList.add('buttonEdit');
             postDiv.append(buttonEdit);
             buttonEdit.addEventListener('click', () => {
@@ -106,7 +111,7 @@ function timeline(navigateTo) {
             });
             // Boton Eliminar
             const buttonDelete = document.createElement('img');
-            buttonDelete.src = './images/svg/trash-solid.svg';
+            buttonDelete.src = btnDelete;
             buttonDelete.classList.add('buttonDelete');
             postDiv.append(buttonDelete);
             buttonDelete.addEventListener('click', () => {
@@ -161,7 +166,7 @@ function timeline(navigateTo) {
     }
   });
   const buttonLogOut = document.createElement('img');
-  buttonLogOut.src = '../images/svg/logout.svg';
+  buttonLogOut.src = btnLogOut;
   buttonLogOut.classList.add('buttonLogOut');
   buttonLogOut.addEventListener('click', () => {
     signOut(auth).then(() => {

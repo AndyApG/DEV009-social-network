@@ -1,4 +1,6 @@
 import { registerUser } from '../lib/credentials.js';
+import logoWords from '../images/logoWords.png';
+import home from '../images/home.png';
 
 function register(navigateTo) {
   const inputs = {
@@ -44,7 +46,7 @@ function register(navigateTo) {
   div.classList.add('divLogoRegistro');
   const imagenGuideMaPA = document.createElement('img');
   imagenGuideMaPA.classList.add('imagenGuideMaPa');
-  imagenGuideMaPA.src = './images/logoWords.png';
+  imagenGuideMaPA.src = logoWords;
   div.appendChild(imagenGuideMaPA);
 
   const section = document.createElement('section');
@@ -333,7 +335,7 @@ function register(navigateTo) {
   buttonHome.type = 'button';
   buttonHome.classList.add('buttonHome');
   const iconHome = document.createElement('img');
-  iconHome.src = './images/home.png';
+  iconHome.src = home;
   iconHome.classList.add('iconHome');
   iconHome.width = 25;
   buttonHome.appendChild(iconHome);

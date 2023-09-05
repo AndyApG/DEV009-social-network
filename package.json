@@ -22,7 +22,7 @@
     "dev": "vite dev src",
     "start": "npm run dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 8080"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
