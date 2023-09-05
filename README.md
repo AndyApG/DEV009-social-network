@@ -59,31 +59,134 @@ Criar hijos es una de las experiencias más gratificantes y significantes de la 
 ¡Únase a Guide Ma+Pa y descubra la alegría de criar juntos!
 
 ## Historias de usuario
+Con estas historias de usuario definiremos lo que el usuario desea de nuestro proyecto. 
+
+**Criterio de aceptación general:**
+- [x] Registro de usuario.
+- [x] Login e Inicio de sesión.
+- [x] Visualizar muro con publicaciones. 
+- [x] Editar post.
+- [x] Borrar post.
+
+**Definicion de terminado General:**
+- [x]  Registro fácil e intuitivo.
+- [x] Cumple con los criterios de aceptación.
+- [x] Debe ser una SPA.
+- [x]  Es responsive.
+- [x]  Pasan los test unitarios.
+- [ ] Recibimos code review de al menos una compañera de otro equipo.
+- [x] La documentación se encuentra actualizada en el readme.
+- [x] Se realizan pruebas manuales buscando errores e imperfecciones simples.
+- [ ] Se implementa todo el feedback que recibimos.
+- [ ] Despliegue de aplicación y etiquetaron la versión (git tag).
 
 ### Historia de usuario 1
+**YO** como mapadre **DESEO** crear una cuenta y unirme a la plataforma, **PARA** conectarme con otros papás y poder compartir experiencias y obtener consejos utiles para la crianza. Además, deseo tener la opción de registrarme utilizando mi cuenta de Google para evitar la necesidad de recordar una contraseña adicional.
+
+**Criterios de Aceptación:**
+
+- [x]  Cuenta con un boton claro donde poder realizar el registro desde la página de Inicio.
+- [x]  Al hacer clic en el botón "crear cuenta" debe redirigir a una página de registro que pueda ingresar:
+- nombre , apellido ,  nombre de usuario, correo, contraseña, confirmación de contraseña.
+- [x]  botón de confirmar registro. (mensaje de confirmación que indique que mi cuenta ha sido creada exitosamente).
+- [x]  Los errores en el formulario deben ser señalados de manera amigable en caso de que no se haya proporcionado la información necesaria o si hay un formato incorrecto en algún campo.
+- [x]  Que la contraseña requiera contenidos mínimos de seguridad (6-10 caracteres, una mayúscula y un número, sin caracteres acentuados, no puede empezar ni terminar c on un espacio en blanco).
+- [x]  verifique el correo sea valido y único, es decir, que no se repita en otro usuario.
+- [x]  El usuario registrado también ha de ser único.
+- [x]  En caso de que ya se encuentre registrado, lo derive a iniciar sesión.
+- [x]  En caso de que el usuario exista dar opciones de sugerencia. 
+- [x]  En caso de que la contraseña no coincida indicar que la corrija.
+- [x]  Que la contraseña tenga un maskify, es decir, que no se visualice la contraseña correcta.
+- [x]  Si elijo la opción "Registrarme con Google", al hacer clic en ese botón, debo ser redirigido a la página de inicio de sesión de Google, donde puedo autenticarme con mi cuenta de Google existente.
+
+**Definición de terminado**
+
+- [x] Cambiar los mensajes de alert a párrafos cuando exista un error en los input y definir un color para check 
+- [x] Agregar un mensaje cuando den eviar y no hay datos en el formulario.
+- [x] En el login agregar breve descripcion de la pagina y nombre abajo del logo.
+- [x] Terminar el formato de css(botones, fuentes , etc.) para que se asemeje mas al prototipo de alta
+- [x] Convertir a la funcion registerUser a una funcion asincrona para que se pueda llamar a la funcion navigateTo.
+- [x] Configurar FirestoreDatabase para almacenar los datos del usuario cuando se registra (crear funciones correspondientes)
+- [x] Agregar la funcionalidad de logout en el timeline (agregar icono, dar formato en css)
+
 
 ### Historia de usuario 2
+**YO** como mapadre, **DESEO** entrar facilmente a la plataforma iniciando sesión tanto con mi correo y contraseña como con mi cuenta de Google, **PARA** ingresar rápidamente a acceder al contenido que deseo ver.
+
+**Criterio de Aceptación:**
+
+- [x] Ingresar con usuario/correo y contraseña.
+- [x] Campos de inicio de sesión claros.
+- [x] Junto al formulario de inicio de sesión con correo y contraseña, se debe proporcionar un botón adicional para "Iniciar sesión con Google". 
+- [x] Ingresar a la página de Guide Ma+Pa. 
+
+**Definición de terminado**
+
+- [x] Al ingresar mi dirección de correo electrónico y contraseña válidos, se debe validar la información y permitirme acceder a mi cuenta, si la combinación de correo electrónico y contraseña no coincide con una cuenta existente, se debe mostrar un mensaje de error indicando que las credenciales son incorrectas; los mensajes de error son los siguientes 
+- [x] En caso de que no exista el correo devolver mensaje /"Correo electrónico ingresado no existe ",
+- [x] En caso de que la contraseña sea errónea: "la contraseña es incorrecta".
+- [x] En caso que no escriba un correo "Ingresa un correo".
+- [x] En caso de que el usuario no escriba contraseña, "Escribe la contraseña".
+- [x] Que exista un botón de "entrar/iniciar sesión".
+- [x] Al hacer clic en el botón "Iniciar sesión con Google", debo ser redirigido a la página de inicio de sesión de Google, donde puedo autenticarme con mi cuenta de Google existente.
+- [x] Después de iniciar sesión con éxito, debo ser redirigido a la página de inicio.
+
 
 ### Historia de usuario 3
+
+### Historia de usuario 4
+### Historia de usuario 5
 
 ## Diseño de la Interfaz de Usuario
 
 En cuanto al diseño de la página, lo primero después de definir el tema a trabajar fue desarrollar un prototipo de baja fidelidad. Para ello realizamos prototipo de baja fidelidad en _Excalidraw_ que llevamos posteriormente a _Figma_.
 
-### Prototipo de baja fidelidad en Excalidraw
+### Prototipo de baja fidelidad en Excalidraw Movil
 <img src="./src/imgReadme/bocetoMovil.png" alt="prototipo de baja fidelidad" width="600px" />
 
-### Prototipo de alta fidelidad en Figma
+### Prototipo de alta fidelidad en Figma Movil
 <img src="./src/imgReadme/protAlta1.png" alt="Primer prototipo de alta fidelidad" width="600px" />
+
+el cual se puede interactuar haciendo [_"Click aquí"_](https://www.figma.com/proto/R7hWxM4PaPMdiPLN40wfoI/Movil-Guide-Ma%2BPa?node-id=20-3127&starting-point-node-id=20%3A3127).
+### Prototipo de baja fidelidad en Excalidraw Escritorio
+<img src="./src/imgReadme/des_baja.png" alt="prototipo de baja fidelidad" width="900px" />
+
+### Prototipo de alta fidelidad en Figma Escritorio
+<img src="./src/imgReadme/des_alta_op.png" alt="Primer prototipo de alta fidelidad" width="900px" />
+
 
 ### Testeos de usabilidad a tráves de _Googleform_
 
-Se solicito feedback a traves de un formulario y asi obtener opiniones y sugerencias para realizar mejoras iterativas de nuestro proyecto. Tras las diversidad de respuestas optamos por los siguientes cambios.
+Se solicito feedback a traves de un formulario y asi obtener opiniones y sugerencias para realizar mejoras iterativas de nuestro proyecto.
+
+<img src="./src/imgReadme/1_tematica.png" alt="¿Qué tan interesante te parece el tema?; 56% muy interesante" width="600px" />
+
+<img src="./src/imgReadme/2_logo.png" alt="¿Qué impresión te da el logo de nuestra marca?; 56,3% bueno" width="600px" />
+
+<img src="./src/imgReadme/3_colores.png" alt="¿Qué opinas de la combinación de colores utilizada en la página? 50% excelente" width="600px" />
+
+<img src="./src/imgReadme/4_sugerencias_Color_logo.png" alt="Tienes alguna sugerencia en cuanto al logo y al color?" width="600px" />
+<img src="./src/imgReadme/4.2.png" alt="Más respuestas" width="600px" />
+
+<img src="./src/imgReadme/5_navegacion.png" alt="¿Encuentras fácil y clara la navegación en nuestra página?" width="600px" />
+
+<img src="./src/imgReadme/6_exp_re_log.png" alt="¿Cómo describirías la experiencia de registro y login en nuestra plataforma?" width="600px" />
+
+<img src="./src/imgReadme/7_diseño_muro.png" alt="¿Qué opinas sobre el diseño del muro (timeline)?" width="600px" />
+<img src="./src/imgReadme/7.2_.png" alt="¿Qué opinas sobre el diseño del muro (timeline)? más respuestas" width="600px" />
+
+<img src="./src/imgReadme/8_sugerencias_dise.png" alt="¿Tienes alguna sugerencia o comentario específico sobre el diseño y/o interacción de la página que te gustaría compartir con nosotros? " width="600px" />
+<img src="./src/imgReadme/8.2_.png" alt="Más respuestas" width="600px" />
 
 
+ Tras las diversidad de respuestas optamos por los siguientes cambios.
 
-### Prototipo de alta fidelidad después del feedback 
-<img src="./src/imgReadme/protAlta2.png" alt="Prototipo de alta fidelidad post iteración" width="600px" />
+
+### Prototipo de alta fidelidad después del feedback Movil
+<img src="./src/imgReadme/protAlta2.png" alt="Prototipo de alta fidelidad post iteración" width="900px" />
+
+### Prototipo de alta fidelidad después del feedback Escritorio
+<img src="./src/imgReadme/des_alta_fin.png" alt="Prototipo de alta fidelidad post iteración" width="900px" />
 
 ## 6. Estructura de archivos
 ```
@@ -117,34 +220,59 @@ Se solicito feedback a traves de un formulario y asi obtener opiniones y sugeren
 ```
 ## Detalle de archivos 
 
+
 **main.js**:En este archivo estan configuradas las rutas y el comportamiento de la navegación en la aplicación, así como manejo del estado de autenticación de Firebase. 
+
 **index.html**:Contiene la estructura básica de la página web.
+
 **README.md**:
+
 **package.json**:
+
 **explaindev.json**:
+
 **vite.config.js**:
+
 **src**:
 
+
 **lib**:
+
 **firebaseConfig.js**: Contiene _"firebaseConfig"_ el cual es un objeto de configuración de Firebase. Este objeto contiene los valores necesarios para conectar la aplicación web con los servicios de Firebase. 
+
 **initializerFirebase.js**: Es donde  se inicializa Firebase y se exportan varias funciones y objetos relacionados con la autenticación y la base de datos. 
+
 **credentials.js**:esta enfocado en la autenticación y manejo de usuarios de la aplicación.
+
 **localStore.js**:
 
+
 **components**: 
+
 **registrer.js**: Este componente crea y configura la interfaz de usuario para la página de registro.
+
 **login.js**: Este componente crea y configura la interfaz de usuario para la página de inicio de sesión.
+
 **timeline.js**: Este componente crea y configura la interfaz de usuario para el muro de la aplicación.
+
 **error.js**: Este componente crea y configura la interfaz de usuario para mostrar un mensaje de error cuando se accede a una página que no se encuentra (error 404).
+
 **newPost.js**:Este componente crea y configura la interfaz de usuario para permitir a los usuarios escribir y publicar nuevas publicaciones en el muro de la aplicación
 
+
 **images**: Contiene las imágenes utilizadas en la página.
+
 **imagReadme**: Contiene todas las imágenes de este readme.
 
-**styles**:Esta carpeta, contiene los estilos CSS del sitio web, aplicados para darle una apariencia visual atractiva
-**registrer.css**:
+
+**styles**:Esta carpeta, contiene los estilos CSS del sitio web, aplicados para darle una apariencia visual atractiva a la página. 
+
+**registrer.css**: Contiene el estilo de
+
 **login.css**:
+
 **timeline.css**:
+
 
 **index.spec.js**:
 
