@@ -1,3 +1,6 @@
+import logoLogin from '../images/logoLogin.png';
+import logoWords from '../images/logoWords.png';
+import iconoGoogle from '../images/iconoGoogle.png';
 import { startSession, signInWithGoogle } from '../lib/credentials.js';
 
 function login(navigateTo) {
@@ -5,12 +8,12 @@ function login(navigateTo) {
   sectionP.classList.add('loginSectionMain');
 
   const logo = document.createElement('img');
-  logo.src = './images/logoLogin.png';
+  logo.src = logoLogin;
   logo.classList.add('logo');
   logo.alt = 'logo de Guide Ma+Pa';
 
   const logoInWords = document.createElement('img');
-  logoInWords.src = './images/logoWords.png';
+  logoInWords.src = logoWords;
   logoInWords.classList.add('logoWords');
   logoInWords.alt = 'Guide Ma+Pa';
 
@@ -55,7 +58,7 @@ function login(navigateTo) {
   buttonSignInGoogle.textContent = 'Ingresar con Google';
   buttonSignInGoogle.classList.add('signInGoogle');
   const iconGoogle = document.createElement('img');
-  iconGoogle.src = './images/iconoGoogle.png';
+  iconGoogle.src = iconoGoogle;
   iconGoogle.classList.add('iconGoogle');
   buttonSignInGoogle.appendChild(iconGoogle);
   buttonSignInGoogle.addEventListener('click', () => {
