@@ -3,13 +3,20 @@ import logoWords from '../images/logoWords.png';
 import iconoGoogle from '../images/iconoGoogle.png';
 import { startSession, signInWithGoogle } from '../lib/credentials.js';
 
+import logoImportado from '../images/logoLogin.png';
+import logoconWords from '../images/logoWords.png';
+import googleIcon from '../images/iconoGoogle.png';
+
+
+
+
 function login(navigateTo) {
   const sectionP = document.createElement('section');
   sectionP.classList.add('loginSectionMain');
 
   const logo = document.createElement('img');
   logo.src = logoLogin;
-  logo.classList.add('logo');
+   logo.classList.add('logo');
   logo.alt = 'logo de Guide Ma+Pa';
 
   const logoInWords = document.createElement('img');

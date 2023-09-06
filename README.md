@@ -150,6 +150,8 @@ Con estas historias de usuario definiremos lo que el usuario desea de nuestro pr
 - [x] Hay un intup para escribir el mensaje y un boton para publicar.
 - [x] Las publicaciones se muestran de forma clara.
 - [x] la estructura de la vista está hecha dinamicamente con css grid.
+- [x] hacer una función para leer los datos de firestore y poder mostrar el nombre del usuario con el mensaje de bienvenida.
+- [x] hacer las configuraciones con grid para dividir la página y dar proporciones del muro
 
 
 
@@ -210,7 +212,7 @@ el cual se puede interactuar haciendo [_"Click aquí"_](https://www.figma.com/pr
 
 ### Testeos de usabilidad a tráves de _Googleform_
 
-Se solicito feedback a traves de un formulario y asi obtener opiniones y sugerencias para realizar mejoras iterativas de nuestro proyecto.
+Se solicito feedback a través de un formulario y asi obtener opiniones y sugerencias para realizar mejoras iterativas de nuestro proyecto.
 
 <img src="./src/imgReadme/1_tematica.png" alt="¿Qué tan interesante te parece el tema?; 56% muy interesante" width="600px" />
 
@@ -274,9 +276,9 @@ Se solicito feedback a traves de un formulario y asi obtener opiniones y sugeren
 ## Detalle de archivos 
 
 
-**main.js**:En este archivo estan configuradas las rutas y el comportamiento de la navegación en la aplicación, así como manejo del estado de autenticación de Firebase. 
+**main.js**: En este archivo estan configuradas las rutas y el comportamiento de la navegación en la aplicación, así como manejo del estado de autenticación de Firebase. 
 
-**index.html**:Contiene la estructura básica de la página web.
+**index.html**: Dentro de este archivo se encuentra el root del proyecto.
 
 **README.md**:
 
@@ -327,9 +329,10 @@ Se solicito feedback a traves de un formulario y asi obtener opiniones y sugeren
 **timeline.css**:
 
 
-**index.spec.js**:
+**index.spec.js**: Este es un archivo de pruebas (test) escrito en Jest para garantizar que las funciones del módulo "funcionesPokemon" se comporten correctamente y produzcan los resultados deseados`
 
 ## 7. Pruebas unitarias
+Estos test contribuyen al mantenimiento y la calidad del código, permiten detectar rápidamente problemas que puedan surgir tras cambios en el código.
 
 ## 8. Interfaz desplegada
 Versión móvil
