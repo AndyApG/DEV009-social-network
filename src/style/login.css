@@ -110,7 +110,7 @@ button{
     border: none;
     justify-self: center;
     box-shadow: 0px 4px 4px rgba(163, 163, 163, 0.4);
-   
+
 }
 .buttonSignInGoogle{
     display: flex;
@@ -137,7 +137,7 @@ button{
     background: var(--primary-color);
     color: var(--color-text);
     font-weight: bold;
-   
+
 }
 .createAccount:hover,
 .startSession:hover,
