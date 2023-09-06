@@ -69,16 +69,16 @@ Con estas historias de usuario definiremos lo que el usuario desea de nuestro pr
 - [x] Borrar post.
 
 **Definicion de terminado General:**
-- [x]  Registro fácil e intuitivo.
+- [x] Registro fácil e intuitivo.
 - [x] Cumple con los criterios de aceptación.
 - [x] Debe ser una SPA.
-- [x]  Es responsive.
-- [x]  Pasan los test unitarios.
-- [ ] Recibimos code review de al menos una compañera de otro equipo.
+- [x] Es responsive.
+- [x] Pasan los test unitarios.
+- [x] Recibimos code review de al menos una compañera de otro equipo.
 - [x] La documentación se encuentra actualizada en el readme.
 - [x] Se realizan pruebas manuales buscando errores e imperfecciones simples.
-- [ ] Se implementa todo el feedback que recibimos.
-- [ ] Despliegue de aplicación y etiquetaron la versión (git tag).
+- [x] Se implementa todo el feedback que recibimos.
+- [x] Despliegue de aplicación y etiquetaron la versión (git tag).
 
 ### Historia de usuario 1
 **YO** como mapadre **DESEO** crear una cuenta y unirme a la plataforma, **PARA** conectarme con otros papás y poder compartir experiencias y obtener consejos utiles para la crianza. Además, deseo tener la opción de registrarme utilizando mi cuenta de Google para evitar la necesidad de recordar una contraseña adicional.
@@ -264,14 +264,17 @@ Se solicito feedback a través de un formulario y asi obtener opiniones y sugere
 |  |  ├── newPost.js
 |  ├── images
 |  ├── imagReadme
-|  ├── styles
+|  ├── style
 |  |  ├── registrer.css
 |  |  ├── login.css
 |  |  ├── timeline.css
 |  ├── index.html
 |  ├── main.js
-└── test
-   └── index.spec.js
+|  ├── test
+|  |  ├── login.spec.js
+|  |  ├── register.spec.js
+|  |  ├── credentials.spec.js
+|
 ```
 ## Detalle de archivos 
 
@@ -280,18 +283,17 @@ Se solicito feedback a través de un formulario y asi obtener opiniones y sugere
 
 **index.html**: Dentro de este archivo se encuentra el root del proyecto.
 
-**README.md**:
+**README.md**: En este archivo esta la descripcion detallada del proyecto.
 
-**package.json**:
+**package.json**: Este archvo contiene las configuraciones de firebase y de vite para el despliegue y los test del proyecto.
 
-**explaindev.json**:
+**explaindev.json**:Este archivo contiene el nombre del proyecto.
 
-**vite.config.js**:
+**vite.config.js**: Este archivo contiene una función con las configuraciones de vite.
 
-**src**:
+**src**: Esta carpeta almacena los componetes de la aplicación, imagenes, svg, archivos de estilo, archivos con extención js y el archivo index.html
 
-
-**lib**:
+**lib**: contiene el archivo credentials.js que contiene las funciones puras que usamos en las diferentes conmonentes o vistas de la aplicacion. firebaseConfig.js que configura el objeto firebaseConfig que contiene la configuración del proyecto en firebase. Finalme el archivo initializerFirebase.js, en el cual se importan y exportan los modulos auth, firestore, app desde firebase.
 
 **firebaseConfig.js**: Contiene _"firebaseConfig"_ el cual es un objeto de configuración de Firebase. Este objeto contiene los valores necesarios para conectar la aplicación web con los servicios de Firebase. 
 
@@ -299,40 +301,48 @@ Se solicito feedback a través de un formulario y asi obtener opiniones y sugere
 
 **credentials.js**:esta enfocado en la autenticación y manejo de usuarios de la aplicación.
 
-**localStore.js**:
+**components**: Contiene las diferentes vistas de nuestra SPA siendo sus principales archivos login.js, . register.js, timeline.js y error.js.
 
+**login.js**: Este componente crea y configura la interfaz de usuario para la página de inicio de sesión. Esta es la vista principal de la aplicacion y default del router
 
-**components**: 
+**registrer.js**: Este componente crea y configura la interfaz de usuario para la página de registro. Es  donde aparece el formulario para que los nuevos usuarios puedan crear una nueva alta de usuario.
 
-**registrer.js**: Este componente crea y configura la interfaz de usuario para la página de registro.
-
-**login.js**: Este componente crea y configura la interfaz de usuario para la página de inicio de sesión.
-
-**timeline.js**: Este componente crea y configura la interfaz de usuario para el muro de la aplicación.
+**timeline.js**: Este componente crea y configura la interfaz de usuario para el muro de la aplicación.Contiene la vista donde el usuario puede visualizar sus publicaciones, las de otros usuarios registrados, realizar publicaciones nuevas, editar o eliminar sus publicaciones.
 
 **error.js**: Este componente crea y configura la interfaz de usuario para mostrar un mensaje de error cuando se accede a una página que no se encuentra (error 404).
-
-**newPost.js**:Este componente crea y configura la interfaz de usuario para permitir a los usuarios escribir y publicar nuevas publicaciones en el muro de la aplicación
-
 
 **images**: Contiene las imágenes utilizadas en la página.
 
 **imagReadme**: Contiene todas las imágenes de este readme.
 
 
-**styles**:Esta carpeta, contiene los estilos CSS del sitio web, aplicados para darle una apariencia visual atractiva a la página. 
+**style**:Esta carpeta, contiene los estilos CSS del sitio web, aplicados para darle una apariencia visual atractiva a la página. 
 
-**registrer.css**: Contiene el estilo de
+**registrer.css**: Contiene el estilo de el conponente register.js
 
-**login.css**:
+**login.css**: Contiene el estilo de el conponente login.js
 
-**timeline.css**:
+**timeline.css**: Contiene el estilo de el conponente timeline.js
 
+**index.html**: Contiene la etiqueta head con los metadatos y con la importación de las hojas de estilo de css. Contiene dentro del body una etiqueta div con id root para identificar que ahí se agregaran los elementos de cada componente o vista de la SPA. También contiene dos etiquetas script, una de tipo modulo para manejar las importaciones de los diferantes módulos y otro script para importar los iconos usados en register importados desde la página de fontawesome.
 
-**index.spec.js**: Este es un archivo de pruebas (test) escrito en Jest para garantizar que las funciones del módulo "funcionesPokemon" se comporten correctamente y produzcan los resultados deseados`
+**main.js**: Este archivo contiene la función del root para la SPA.
+
+**test**: En esta carpeta se encuentran los archivos login.spec.js,register.spec.js contienen los test 
+
+**login.spec.js**:
+
+En este archivo se encuentran los test de la renderización de los botones e inputs que son necesarios para iniciar sesión con email y contraseña, con una cuenta de google y para registrarse.
+
+**register.spec.js**:
+
+Aquí se encuentran los test de la validación de todos los inputs para que se registre un nuevo usuario. Tambien se verifica que llame correctamente a la función createUserWithEmailAndPassword.  
+
+**credentials.spec.js**:
+contiene un test de las funciones puras usadas en la aplicación.
 
 ## 7. Pruebas unitarias
-Estos test contribuyen al mantenimiento y la calidad del código, permiten detectar rápidamente problemas que puedan surgir tras cambios en el código.
+Estos test contribuyen al mantenimiento y la calidad del código, permiten detectar rápidamente problemas que puedan surgir tras cambios en el código. Se encuentran en la carpeta test.
 
 ## 8. Interfaz desplegada
 Versión móvil
