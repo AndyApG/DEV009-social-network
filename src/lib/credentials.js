@@ -82,7 +82,16 @@ export const signInWithGoogle = () => {
         GoogleAuthProvider.credentialFromResult(result);
         // const token = credential.accessToken;
         // The signed-in user info.
-        // const user = result.user;
+        const user = result.user;
+        let name = user.displayName;
+        const displaySplit = name.split(' ');
+        let lastname = '';
+        if (displaySplit.length >= 2) {
+          const sliceName = displaySplit.slice(0, 2);
+          name = sliceName[0];
+          lastname = sliceName[1];
+        }
+        saveNewUser(user.uid, name, lastname, user.email);
         // IdP data available using getAdditionalUserInfo(result)
       }).catch((error) => {
         // Handle Errors here.
