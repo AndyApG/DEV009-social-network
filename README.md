@@ -344,7 +344,12 @@ contiene un test de las funciones puras usadas en la aplicación.
 ## 7. Pruebas unitarias
 Estos test contribuyen al mantenimiento y la calidad del código, permiten detectar rápidamente problemas que puedan surgir tras cambios en el código. Se encuentran en la carpeta test.
 
+<img src="./src/imgReadme/test2.png" alt="Test antesd del despliegue de la aplicación" width="900px" />
+<img src="./src/imgReadme/test1.png" alt="Test antesd del despliegue de la aplicación" width="900px" />
+
 ## 8. Interfaz desplegada
+https://guide-mapa.web.app/
+
 Versión móvil
 Esta es la interfaz final de la aplicación web en la vista de movil equivalente a 480 px.
 
