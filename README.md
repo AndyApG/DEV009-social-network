@@ -330,16 +330,11 @@ Se solicito feedback a través de un formulario y asi obtener opiniones y sugere
 
 **test**: En esta carpeta se encuentran los archivos login.spec.js,register.spec.js contienen los test 
 
-**login.spec.js**:
+**login.spec.js**: En este archivo se encuentran los test de la renderización de los botones e inputs que son necesarios para iniciar sesión con email y contraseña, con una cuenta de google y para registrarse.
 
-En este archivo se encuentran los test de la renderización de los botones e inputs que son necesarios para iniciar sesión con email y contraseña, con una cuenta de google y para registrarse.
+**register.spec.js**: Aquí se encuentran los test de la validación de todos los inputs para que se registre un nuevo usuario. Tambien se verifica que llame correctamente a la función createUserWithEmailAndPassword.  
 
-**register.spec.js**:
-
-Aquí se encuentran los test de la validación de todos los inputs para que se registre un nuevo usuario. Tambien se verifica que llame correctamente a la función createUserWithEmailAndPassword.  
-
-**credentials.spec.js**:
-contiene un test de las funciones puras usadas en la aplicación.
+**credentials.spec.js**: contiene un test de las funciones puras usadas en la aplicación.
 
 ## 7. Pruebas unitarias
 Estos test contribuyen al mantenimiento y la calidad del código, permiten detectar rápidamente problemas que puedan surgir tras cambios en el código. Se encuentran en la carpeta test.
